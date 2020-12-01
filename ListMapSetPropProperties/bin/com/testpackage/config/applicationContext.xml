@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c">
+	<bean id="person" class="com.testpackage.beans.Person"
+		p:name="TestName" p:age="20" p:account-ref="account">
+		<property name="gender" value="MALE" />
+		<property name="addresses">
+			<list>
+				<value>LIST1</value>
+				<value>LIST2</value>
+				<value>LIST3</value>
+			</list>
+		</property>
+		<property name="cities">
+			<set>
+				<value>SET1</value>
+				<value>SET2</value>
+				<value>SET3</value>
+			</set>
+		</property>
+	</bean>
+	<bean id="account" class="com.testpackage.beans.Account"
+		 c:accountholder="TestPerson">
+		<constructor-arg name="accounttype"
+			value="TestSavings"></constructor-arg>
+		<constructor-arg name="accounttype">
+			<map>
+				<entry key="MAPKEY1" value="MAPVALUE1"></entry>
+				<entry key="MAPKEY2" value="MAPVALUE2"></entry>
+				<entry key="MAPKEY3" value="MAPVALUE3"></entry>
+			</map>
+		</constructor-arg>
+		<constructor-arg name="accountnumbers">
+			<props>
+			<prop key="PROPKEY1">PROPV1</prop>
+			<prop key="PROPKEY2">PROPV2</prop>
+			<prop key="PROPKEY3">PROPV3</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+</beans>
